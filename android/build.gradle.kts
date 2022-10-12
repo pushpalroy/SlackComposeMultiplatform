@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.compose") version "1.2.0-beta01"
+    id("org.jetbrains.compose") version "1.2.0"
     id("com.android.application")
     kotlin("android")
 }
@@ -17,7 +17,7 @@ dependencies {
     implementation(project(":common"))
     implementation("androidx.activity:activity-compose:1.6.0")
     implementation("androidx.core:core-splashscreen:1.0.0")
-    implementation("io.grpc:grpc-okhttp:1.49.1")
+    implementation("io.grpc:grpc-okhttp:1.49.2")
 }
 
 android {

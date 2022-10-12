@@ -134,11 +134,12 @@ fun CreateWorkspaceButton(composeNavigator: ComposeNavigator, viewModel: Workspa
     Modifier
       .fillMaxWidth()
       .height(40.dp),
-    colors = ButtonDefaults.buttonColors(backgroundColor = SlackGreen)
+    colors = ButtonDefaults.buttonColors(backgroundColor = SlackGreen,
+      contentColor = Color.White)
   ) {
     Text(
       text = "Create Workspace",
-      style = SlackCloneTypography.subtitle1.copy(color = Color.White, fontWeight = FontWeight.Bold)
+      style = SlackCloneTypography.subtitle1.copy(fontWeight = FontWeight.Bold)
     )
   }
 }

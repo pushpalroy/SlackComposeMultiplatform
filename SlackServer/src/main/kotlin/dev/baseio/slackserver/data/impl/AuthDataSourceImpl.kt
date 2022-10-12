@@ -1,24 +1,33 @@
 package dev.baseio.slackserver.data.impl
 
 import at.favre.lib.crypto.bcrypt.BCrypt
-import database.SkUser
-import dev.baseio.SlackCloneDB
 import dev.baseio.slackserver.data.AuthDataSource
+import dev.baseio.slackserver.data.SkAuthUser
+import dev.baseio.slackserver.data.SkUser
+import kotlinx.coroutines.reactive.awaitFirstOrNull
+import kotlinx.coroutines.reactive.awaitSingleOrNull
+import org.litote.kmongo.coroutine.CoroutineDatabase
+import org.litote.kmongo.eq
+import org.litote.kmongo.reactivestreams.findOne
 import java.util.*
 
-class AuthDataSourceImpl(private val slackCloneDB: SlackCloneDB) : AuthDataSource {
-  override fun login(email: String, password: String, workspaceId: String): SkUser? {
-    slackCloneDB.slackschemaQueries
-      .getUserWithEmailAndWorkspaceId(email, workspaceId)
-      .executeAsOneOrNull()?.let { user ->
-        val auth = slackCloneDB.slackschemaQueries.getAuth(user.uuid).executeAsOneOrNull()
-        auth?.let {
+class AuthDataSourceImpl(private val slackCloneDB: CoroutineDatabase) : AuthDataSource {
+  override suspend fun login(email: String, password: String, workspaceId: String): SkUser? {
+    val user = slackCloneDB.getCollection<SkUser>().collection
+      .findOne(
+        SkUser::email eq email,
+        SkUser::workspaceId eq workspaceId
+      )
+    user.awaitFirstOrNull()?.let { user ->
+      slackCloneDB.getCollection<SkAuthUser>().collection
+        .findOne(SkAuthUser::uuid eq user.uuid)
+        .awaitFirstOrNull()?.let {
           val result: BCrypt.Result = BCrypt.verifyer().verify(password.toCharArray(), it.password)
           if (result.verified) {
             return user
           }
         }
-      }
+    }
     return null
   }
 

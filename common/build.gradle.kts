@@ -6,10 +6,10 @@ import io.github.timortel.kotlin_multiplatform_grpc_plugin.GrpcMultiplatformExte
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.0-beta01"
+    id("org.jetbrains.compose") version "1.2.0"
     id("com.android.library")
     id("com.squareup.sqldelight")
-    kotlin("plugin.serialization") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.20"
     id("com.google.protobuf") version "0.8.18"
     id("io.github.timortel.kotlin-multiplatform-grpc-plugin") version "0.2.2"
 }

@@ -6,10 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="231eca9a-4bad-45b5-bd97-4ee9e884796e" name="Changes" comment="add: save workspace with user">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/grpc/GrpcCalls.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/grpc/GrpcCalls.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/slackclone/uichat/newchat/NewChatThreadScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/slackclone/uichat/newchat/NewChatThreadScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/AuthDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/AuthDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/ChannelsDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/ChannelsDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/Database.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/Database.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/MessagesDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/MessagesDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/UsersDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/UsersDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/WorkspaceDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/WorkspaceDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../android/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../common/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/slackclone/uionboarding/compose/CreateWorkspaceScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../common/src/commonMain/kotlin/dev/baseio/slackclone/uionboarding/compose/CreateWorkspaceScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desktop/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../desktop/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iOSApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../iOSApp/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protos/src/main/proto/hello.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../protos/src/main/proto/hello.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,6 +283,7 @@
       <workItem from="1665455615175" duration="1746000" />
       <workItem from="1665564813024" duration="269000" />
       <workItem from="1665565375403" duration="570000" />
+      <workItem from="1665586819556" duration="2321000" />
     </task>
     <task id="LOCAL-00001" summary="setup sqldelight and gRPC service!">
       <created>1664372471497</created>
@@ -417,22 +432,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt</url>
-          <line>26</line>
+          <line>35</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt</url>
-          <line>43</line>
+          <line>52</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt</url>
-          <line>41</line>
+          <line>50</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/dev/baseio/slackserver/data/impl/AuthDataSourceImpl.kt</url>
-          <line>48</line>
+          <line>57</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
