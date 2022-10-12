@@ -2,7 +2,7 @@ package dev.baseio.slackserver.data
 
 
 interface AuthDataSource {
-  fun register(email: String, password: String, user: SkUser): SkUser?
+  suspend fun register(email: String, password: String, user: SkUser): SkUser?
   suspend fun login(email: String, password: String, workspaceId: String): SkUser?
 }
 
