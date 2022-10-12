@@ -6,6 +6,8 @@ Depends on [gRPC-KMP](https://github.com/Anmol92verma/gRPC-KMP) which is a fork 
 
 Important Points
 
+EVERYTHING is a MESS! RN, I need to move away modules as git submodules and separate out the dependencies!
+
 1. Install gRPC library on mavenLocal() once you clone [gRPC-KMP](https://github.com/Anmol92verma/gRPC-KMP)
 2. Build and install to mavenLocal grpc-multiplatform-lib & plugin module (Note: Use Xcode 13.0 only! 14.0.* doesnt work with grpc!)
 3. Import SlackServer in Intellij Idea and run the server.
