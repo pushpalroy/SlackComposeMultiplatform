@@ -1,10 +1,14 @@
 package dev.baseio.slackserver.data
 
+import dev.baseio.slackdata.protos.SKMessage
+import dev.baseio.slackdata.protos.SKMessages
+import dev.baseio.slackdata.protos.SKWorkspaceChannelRequest
 import kotlinx.coroutines.flow.Flow
 
 interface MessagesDataSource {
-  fun saveMessage(request: SkMessage): SkMessage
-  fun getMessages(workspaceId: String, channelId: String): Flow<List<SkMessage>>
+  suspend fun saveMessage(request: SkMessage): SkMessage
+  suspend fun getMessages(workspaceId: String, channelId: String): List<SkMessage>
+  fun registerForChanges(request: SKWorkspaceChannelRequest): Flow<SkMessage>
 }
 
 data class SkMessage(

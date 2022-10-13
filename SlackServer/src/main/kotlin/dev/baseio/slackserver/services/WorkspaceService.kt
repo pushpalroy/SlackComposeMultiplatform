@@ -1,9 +1,8 @@
 package dev.baseio.slackserver.services
 
-import database.FindWorkspacesForEmailId
-import database.SkWorkspace
 import dev.baseio.slackdata.protos.*
 import dev.baseio.slackserver.data.AuthDataSource
+import dev.baseio.slackserver.data.SkWorkspace
 import dev.baseio.slackserver.data.WorkspaceDataSource
 import io.grpc.Status
 import io.grpc.StatusException
@@ -23,7 +22,7 @@ class WorkspaceService(
         return workspaceDataSource.findWorkspaceForName(request.name)?.let { workspace ->
             sKWorkspace {
                 uuid = workspace.uuid ?: ""
-                lastSelected = workspace.lastSelected == 1
+                lastSelected = workspace.lastSelected == true
                 picUrl = workspace.picUrl ?: ""
                 domain = workspace.domain ?: ""
                 name = workspace.name ?: ""
@@ -39,7 +38,7 @@ class WorkspaceService(
             .addAllWorkspaces(workspaces.map { workspace ->
                 sKWorkspace {
                     uuid = workspace.uuid ?: ""
-                    lastSelected = workspace.lastSelected == 1
+                    lastSelected = workspace.lastSelected == true
                     picUrl = workspace.picUrl ?: ""
                     domain = workspace.domain ?: ""
                     name = workspace.name ?: ""
@@ -66,7 +65,7 @@ class WorkspaceService(
 
     override fun getWorkspaces(request: Empty): Flow<SKWorkspaces> {
         return workspaceDataSource.getWorkspaces().map { query ->
-            val workspaces = query.executeAsList().map { dbWorkspace ->
+            val workspaces = query.map { dbWorkspace ->
                 dbWorkspace.toGRPC()
             }
             SKWorkspaces.newBuilder()
@@ -85,7 +84,7 @@ fun SkWorkspace.toGRPC(): SKWorkspace {
         .setUuid(dbWorkspace.uuid)
         .setName(dbWorkspace.name)
         .setDomain(dbWorkspace.domain)
-        .setLastSelected(dbWorkspace.lastSelected == 1)
+        .setLastSelected(dbWorkspace.lastSelected)
         .setPicUrl(dbWorkspace.picUrl)
         .build()
 }
@@ -96,6 +95,6 @@ fun SKWorkspace.toDBWorkspace(workspaceId: String = UUID.randomUUID().toString()
         this.name,
         this.domain.takeIf { !it.isNullOrEmpty() } ?: "$name.slack.com",
         this.picUrl.takeIf { !it.isNullOrEmpty() } ?: "https://picsum.photos/300/300",
-        if (this.lastSelected) 1 else 0
+        this.lastSelected
     )
 }

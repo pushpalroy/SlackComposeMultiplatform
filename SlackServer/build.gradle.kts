@@ -29,6 +29,18 @@ dependencies {
 
   //passwords
   implementation("at.favre.lib:bcrypt:0.9.0")
+
+  kotlin.sourceSets.getByName("main")
+    .kotlin
+    .srcDirs(projectDir.parentFile
+      .resolve("generate-proto/build/generated/source/proto/main/kotlin")
+      .canonicalPath,projectDir.parentFile
+      .resolve("generate-proto/build/generated/source/proto/main/grpckt")
+      .canonicalPath,projectDir.parentFile
+      .resolve("generate-proto/build/generated/source/proto/main/grpc")
+      .canonicalPath,projectDir.parentFile
+      .resolve("generate-proto/build/generated/source/proto/main/java")
+      .canonicalPath)
 }
 
 tasks.test {

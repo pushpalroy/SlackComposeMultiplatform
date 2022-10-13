@@ -107,9 +107,18 @@ message Empty {
   string nothing = 1;
 }
 
+message SKMessagesRequest{
+  int32 pageno = 1;
+  int32 size = 2;
+}
+
 message SKFindWorkspacesRequest{
   string email = 1;
   string name = 2;
+}
+
+message SKDeleteMessageRequest{
+  string userid = 1;
 }
 
 service WorkspaceService {
@@ -120,18 +129,23 @@ service WorkspaceService {
 }
 
 service ChannelsService{
-  rpc getChannels(SKChannelRequest) returns (stream SKChannels);
+  rpc getChannelChangeStream(SKChannelRequest) returns (stream SKChannel);
+  rpc getChannels(SKChannelRequest) returns (SKChannels);
   rpc saveChannel(SKChannel) returns (SKChannel);
 }
 
 service MessagesService{
-  rpc getMessages(SKWorkspaceChannelRequest) returns (stream SKMessages);
+  rpc getMessagespaginated(SKMessagesRequest) returns (SKMessages);
+  rpc suscribeToDeletedMessages(SKDeleteMessageRequest) returns (SKMessage);
+  rpc getMessages(SKWorkspaceChannelRequest) returns (SKMessages);
   rpc saveMessage(SKMessage) returns (SKMessage);
-  rpc subscribeToChanges(SKWorkspaceChannelRequest) returns (stream SKMessages);
+  rpc subscribeToChanges(SKWorkspaceChannelRequest) returns (stream SKMessage);
 }
 
 service UsersService{
-  rpc getUsers(SKWorkspaceChannelRequest) returns (stream SKUsers);
+  rpc getUsers(SKWorkspaceChannelRequest) returns (SKUsers);
+  rpc subscribeToChanges(SKWorkspaceChannelRequest) returns (stream SKUser);
+
   rpc saveUser(SKUser) returns (SKUser);
   rpc currentLoggedInUser(Empty) returns (SKUser);
 }
